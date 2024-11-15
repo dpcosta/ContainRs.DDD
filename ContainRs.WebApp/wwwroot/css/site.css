@@ -18,5 +18,18 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    min-height: 100vh;
+    margin: 0px;
+    background: rgb(2,0,36);
+    background: linear-gradient(30deg, rgba(2,0,36,1) 17%, rgba(9,9,121,1) 80%, rgba(30,49,173,1) 100%);
+}
+
+.btn.btn-color1 {
+    background-color: rgba(9,9,121,1) !important;
+    border-color: rgba(9,9,121,1) !important;
+    color: white !important;
+}
+
+.bg-lightgray {
+    background-color: #f8f9fa !important;
 }

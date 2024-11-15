@@ -23,6 +23,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7035;http://localhost:5048",
+      "launchUrl": "registro",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

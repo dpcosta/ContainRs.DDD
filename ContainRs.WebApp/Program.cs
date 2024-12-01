@@ -1,14 +1,7 @@
 using ContainRs.WebApp.Data;
-using ContainRs.WebApp.Models;
 using ContainRs.WebApp.Services;
 using Microsoft.EntityFrameworkCore;
 using Refit;
-
-
-Email email = new Email("www.alura.com.br");
-//DateTime data = new DateTime(2024, 16, 48);
-
-return;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -21,7 +21,14 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Cliente>()
             .Property(c => c.Nome).IsRequired();
         modelBuilder.Entity<Cliente>()
-            .Property(c => c.Email).IsRequired();
+            .OwnsOne(c => c.Email, cfg =>
+            {
+                cfg.Property(e => e.Value)
+                    .HasColumnName("Email")
+                    .IsRequired();
+            });
+
+
         modelBuilder.Entity<Cliente>()
             .Property(c => c.CPF).IsRequired();
     }

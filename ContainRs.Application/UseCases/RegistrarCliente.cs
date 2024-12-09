@@ -1,7 +1,7 @@
 ﻿using ContainRs.WebApp.Data;
-using ContainRs.WebApp.Models;
+using ContainRs.Domain.Models;
 
-namespace ContainRs.WebApp.UseCases;
+namespace ContainRs.Application.UseCases;
 
 public class RegistrarCliente
 {

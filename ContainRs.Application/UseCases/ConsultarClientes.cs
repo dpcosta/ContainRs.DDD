@@ -16,6 +16,10 @@ public class ConsultarClientes
 
     public Task<IEnumerable<Cliente>> ExecutarAsync()
     {
-
+        if (Estado is not null)
+        {
+            return repository.GetAsync(c => c.Estado == Estado);
+        }
+        return repository.GetAsync();
     }
 }

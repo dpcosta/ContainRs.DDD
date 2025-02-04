@@ -5,6 +5,16 @@ namespace ContainRs.Application.Repositories;
 
 public interface IClienteRepository
 {
-    Task<Cliente> AddAsync(Cliente cliente);
-    Task<IEnumerable<Cliente>> GetAsync(Expression<Func<Cliente, bool>>? filtro = default);
+    Task<Cliente> AddAsync(
+        Cliente cliente
+        , CancellationToken cancellationToken = default);
+
+    Task<Cliente?> GetFirstAsync<TProperty>(
+        Expression<Func<Cliente, bool>> filtro
+        , Expression<Func<Cliente, TProperty>> orderBy
+        , CancellationToken cancellationToken = default);
+
+    Task<IEnumerable<Cliente>> GetWhereAsync(
+        Expression<Func<Cliente, bool>>? filtro = default
+        , CancellationToken cancellationToken = default);
 }

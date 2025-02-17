@@ -1,6 +1,8 @@
+using ContainRs.Api.Contracts;
 using ContainRs.Api.Data;
+using ContainRs.Api.Data.Repositories;
 using ContainRs.Api.Endpoints;
-using ContainRs.Application.Repositories;
+using ContainRs.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +16,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         .UseSqlServer(builder.Configuration.GetConnectionString("ContainRsDB"));
 });
 
-builder.Services.AddScoped<IClienteRepository, AppDbContext>();
+builder.Services.AddScoped<IRepository<Cliente>, ClienteRepository>();
 
 var app = builder.Build();
 

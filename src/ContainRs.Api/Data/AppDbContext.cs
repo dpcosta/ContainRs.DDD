@@ -14,25 +14,6 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        modelBuilder.Entity<Cliente>()
-        .HasKey(c => c.Id);
-
-        modelBuilder.Entity<Cliente>()
-            .Property(c => c.Nome).IsRequired();
-        modelBuilder.Entity<Cliente>()
-            .OwnsOne(c => c.Email, cfg =>
-            {
-                cfg.Property(e => e.Value)
-                    .HasColumnName("Email")
-                    .IsRequired();
-            });
-
-        modelBuilder.Entity<Cliente>()
-            .Property(c => c.Estado)
-            .HasConversion<string>();
-
-        modelBuilder.Entity<Cliente>()
-            .Property(c => c.CPF).IsRequired();
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
 }

@@ -2,6 +2,22 @@
 
 namespace ContainRs.Api.Requests;
 
+public class EnderecoRequest
+{
+    [Required]
+    [Display(Prompt = "00.000-000")]
+    public string CEP { get; set; }
+    [Required]
+    public string? Rua { get; set; }
+    public string? Numero { get; set; }
+    public string? Complemento { get; set; }
+    public string? Bairro { get; set; }
+    [Required]
+    public string? Municipio { get; set; }
+    [Required]
+    public string? Estado { get; set; }
+}
+
 public class RegistroRequest
 {
     [Display(Name = "Nome (*)", Prompt = "Digite seu nome completo.")]
@@ -18,12 +34,5 @@ public class RegistroRequest
     public string CPF { get; set; }
     [Display(Prompt = "(00) 00000-0000")]
     public string? Celular { get; set; }
-    [Display(Prompt = "00.000-000")]
-    public string? CEP { get; set; }
-    public string? Rua { get; set; }
-    public string? Numero { get; set; }
-    public string? Complemento { get; set; }
-    public string? Bairro { get; set; }
-    public string? Municipio { get; set; }
-    public string? Estado { get; set; }
+    public EnderecoRequest? Endereco { get; set; }
 }

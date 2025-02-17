@@ -29,18 +29,22 @@ public class ClienteRepository(AppDbContext dbContext) : IRepository<Cliente>
     public async Task<Cliente?> GetFirstAsync<TProperty>(Expression<Func<Cliente, bool>> filtro, Expression<Func<Cliente, TProperty>> orderBy, CancellationToken cancellationToken = default)
     {
         return await dbContext.Clientes
+            .Include(c => c.Enderecos)
             .AsNoTracking()
             .OrderBy(orderBy)
             .FirstOrDefaultAsync(filtro, cancellationToken);
     }
 
-    public Task RemoveAsync(Cliente cliente, CancellationToken cancellationToken = default)
+    public async Task RemoveAsync(Cliente cliente, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        dbContext.Clientes.Remove(cliente);
+        await dbContext.SaveChangesAsync(cancellationToken);
     }
 
-    public Task<Cliente> UpdateAsync(Cliente cliente, CancellationToken cancellationToken = default)
+    public async Task<Cliente> UpdateAsync(Cliente cliente, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        dbContext.Clientes.Update(cliente);
+        await dbContext.SaveChangesAsync(cancellationToken);
+        return cliente;
     }
 }

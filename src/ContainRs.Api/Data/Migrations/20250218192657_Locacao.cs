@@ -47,6 +47,7 @@ namespace ContainRs.Api.Data.Migrations
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataExpiracao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NomeArquivo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClienteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SolicitacaoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -87,6 +88,7 @@ namespace ContainRs.Api.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PropostaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ClienteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DataInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataPrevistaEntrega = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataTermino = table.Column<DateTime>(type: "datetime2", nullable: false),

@@ -2,7 +2,19 @@
 
 namespace ContainRs.Api.Requests;
 
-public class SolicitacaoRequest
+public record ComentarioRequest([Required] string Comentario);
+
+public class PropostaRequest
+{
+    [Required]
+    public decimal ValorTotal { get; set; }
+    [Required]
+    public DateTime DataExpiracao { get; set; }
+    [Required]
+    public IFormFile Arquivo { get; set; }
+}
+
+    public class SolicitacaoRequest
 {
     [Required]
     public string Finalidade { get; set; }

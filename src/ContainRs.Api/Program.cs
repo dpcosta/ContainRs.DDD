@@ -27,6 +27,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<IRepository<Cliente>, ClienteRepository>();
 builder.Services.AddScoped<IRepository<Solicitacao>, SolicitacaoRepository>();
+builder.Services.AddScoped<IRepository<Proposta>, PropostaRepository>();
+builder.Services.AddScoped<IRepository<Locacao>, LocacaoRepository>();
 
 builder.Services
     .AddIdentityApiEndpoints<AppUser>(options => options.SignIn.RequireConfirmedEmail = true)
@@ -56,6 +58,8 @@ app
     .MapIdentityEndpoints()
     .MapClientesEndpoints()
     .MapAprovacaoClientesEndpoints()
-    .MapSolicitacoesEndpoints();
+    .MapSolicitacoesEndpoints()
+    .MapPropostasEndpoints()
+    .MapLocacoesEndpoints();
 
 app.Run();

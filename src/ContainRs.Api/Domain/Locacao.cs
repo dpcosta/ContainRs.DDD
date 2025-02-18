@@ -25,6 +25,7 @@ public class Locacao
     public Locacao() { }
     public Guid Id { get; set; }
     public Guid PropostaId { get; set; }
+    public Guid ClienteId { get; set; }
     public Proposta Proposta { get; set; }
     public DateTime DataInicio { get; set; }
     public DateTime DataPrevistaEntrega { get; set; }

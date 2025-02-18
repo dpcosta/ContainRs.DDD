@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+namespace ContainRs.Api.Identity;
 
 public static class MigrationBuilderExtensions
 {

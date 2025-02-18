@@ -29,6 +29,7 @@ public class Proposta
     public DateTime DataCriacao { get; set; }
     public DateTime DataExpiracao { get; set; }
     public string NomeArquivo { get; set; }
+    public Guid ClienteId { get; set; }
     public Guid SolicitacaoId { get; set; }
     public Solicitacao Solicitacao { get; set; }
     public ICollection<Comentario> Comentarios { get; } = [];

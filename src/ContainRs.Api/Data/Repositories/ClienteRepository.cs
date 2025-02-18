@@ -43,6 +43,12 @@ public class ClienteRepository(AppDbContext dbContext) : IRepository<Cliente>
 
     public async Task<Cliente> UpdateAsync(Cliente cliente, CancellationToken cancellationToken = default)
     {
+        // verificando endereços a serem removidos
+        dbContext.Set<Endereco>()
+            .Where(e => e.ClienteId == cliente.Id && !cliente.Enderecos.Contains(e))
+            .ToList()
+            .ForEach(e => dbContext.Set<Endereco>().Remove(e));
+
         dbContext.Clientes.Update(cliente);
         await dbContext.SaveChangesAsync(cancellationToken);
         return cliente;

@@ -70,6 +70,9 @@ namespace ContainRs.Api.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Numero")
                         .HasColumnType("nvarchar(max)");
 

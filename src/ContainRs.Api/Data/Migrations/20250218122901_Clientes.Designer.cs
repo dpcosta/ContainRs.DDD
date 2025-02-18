@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContainRs.Api.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250217200419_Clientes")]
+    [Migration("20250218122901_Clientes")]
     partial class Clientes
     {
         /// <inheritdoc />
@@ -71,6 +71,9 @@ namespace ContainRs.Api.Data.Migrations
 
                     b.Property<string>("Municipio")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Numero")

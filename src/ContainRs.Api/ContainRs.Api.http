@@ -1,24 +1,2 @@
 @ContainRs.Api_HostAddress = http://localhost:5259
 
-###
-GET {{ContainRs.Api_HostAddress}}/clientes?estado=PA
-
-###
-GET {{ContainRs.Api_HostAddress}}/clientes/31692369-245d-4db4-9fc7-01ea17468b4d
-
-###
-POST {{ContainRs.Api_HostAddress}}/clientes
-Content-Type: application/json
-
-{
-  "nome": "Fulano de Tal",
-  "email": "fulano@email.org",
-  "cpf": "12345678901",
-  "telefone": "91999999999",
-  "cep": "29999111",
-  "rua": "Rua dos Inválidos",
-  "numero": "123",
-  "bairro": "Centro",
-  "municipio": "Belém",
-  "estado": "PA"
-}

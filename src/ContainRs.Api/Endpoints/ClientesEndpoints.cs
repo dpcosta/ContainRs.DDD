@@ -47,7 +47,7 @@ public static class ClientesEndpoints
                     c => c.Id);
             if (cliente is null) return Results.NotFound();
 
-            return Results.Ok(new ClienteResponse(cliente.Id.ToString(), cliente.Nome, cliente.Email.Value, cliente.Celular, cliente.Enderecos.Select(e => new EnderecoResponse(e.Id.ToString(), e.Rua, e.Numero, e.Complemento, e.Bairro, e.Municipio, e.Estado?.ToString(), e.CEP))));
+            return Results.Ok(ClienteResponse.From(cliente));
         })
         .WithName(ENDPOINT_NAME_GET_CLIENTE)
         .WithTags(TAG_CLIENTES)
@@ -71,11 +71,11 @@ public static class ClientesEndpoints
             };
             if (request.Endereco is not null)
             {
-                cliente.AddEndereco(request.Endereco.CEP, request.Endereco.Rua, request.Endereco.Numero, request.Endereco.Complemento, request.Endereco.Bairro, request.Endereco.Municipio, UfStringConverter.From(request.Endereco.Estado));
+                cliente.AddEndereco(request.Endereco.ToModel());
             }
             await repository.AddAsync(cliente);
 
-            return Results.CreatedAtRoute(ENDPOINT_NAME_GET_CLIENTE, new { id = cliente.Id }, new ClienteResponse(cliente.Id.ToString(), cliente.Nome, cliente.Email.Value, cliente.Celular));
+            return Results.CreatedAtRoute(ENDPOINT_NAME_GET_CLIENTE, new { id = cliente.Id },  ClienteResponse.From(cliente));
         })
         .AllowAnonymous()
         .WithTags(TAG_CLIENTES)
@@ -98,7 +98,7 @@ public static class ClientesEndpoints
 
             await repository.UpdateAsync(clienteExistente, cancellationToken);
 
-            return Results.Ok(new ClienteResponse(clienteExistente.Id.ToString(), clienteExistente.Nome, clienteExistente.Email.Value, clienteExistente.Celular));
+            return Results.Ok(ClienteResponse.From(clienteExistente));
         })
         .WithTags(TAG_CLIENTES)
         .Produces<ClienteResponse>(StatusCodes.Status200OK)
@@ -149,13 +149,13 @@ public static class ClientesEndpoints
                 var user = await userManager.FindByEmailAsync(cliente.Email.Value);
 
                 // se não houver user, retornar status Pendente
-                if (user is null) return Results.Ok(new RegistrationStatusResponse(cliente.Id.ToString(), cliente.Email.Value, "Pendente"));
+                if (user is null) return Results.Ok(RegistrationStatusResponse.Pendente(cliente));
 
                 // se houver user e EmailConfirmed for false, retornar Em análise
-                if (!user.EmailConfirmed) return Results.Ok(new RegistrationStatusResponse(cliente.Id.ToString(), cliente.Email.Value, "Registro não aprovado"));
+                if (!user.EmailConfirmed) return Results.Ok(RegistrationStatusResponse.Reprovado(cliente));
 
                 // se houver user e EmailConfirmed for true, retornar Aprovado
-                return Results.Ok(new RegistrationStatusResponse(cliente.Id.ToString(), cliente.Email.Value, "Aprovado"));
+                return Results.Ok(RegistrationStatusResponse.Aprovado(cliente));
             })
             .AllowAnonymous()
             .WithTags(TAG_CLIENTES)
@@ -175,10 +175,10 @@ public static class ClientesEndpoints
             var cliente = await repository.GetFirstAsync(c => c.Id == id, c => c.Id);
             if (cliente is null) return Results.NotFound();
 
-            cliente.AddEndereco(request.CEP, request.Rua, request.Numero, request.Complemento, request.Bairro, request.Municipio, UfStringConverter.From(request.Estado));
+            cliente.AddEndereco(request.ToModel());
             await repository.UpdateAsync(cliente, cancellationToken);
 
-            return Results.CreatedAtRoute(ENDPOINT_NAME_GET_CLIENTE, new { id = cliente.Id }, new ClienteResponse(cliente.Id.ToString(), cliente.Nome, cliente.Email.Value, cliente.Celular, cliente.Enderecos.Select(e => new EnderecoResponse(e.Id.ToString(), e.Rua, e.Numero, e.Complemento, e.Bairro, e.Municipio, e.Estado?.ToString(), e.CEP))));
+            return Results.CreatedAtRoute(ENDPOINT_NAME_GET_CLIENTE, new { id = cliente.Id }, ClienteResponse.From(cliente));
         })
         .WithTags(TAG_CLIENTES)
         .Produces<ClienteResponse>(StatusCodes.Status201Created)
@@ -212,7 +212,7 @@ public static class ClientesEndpoints
 
             await repository.UpdateAsync(cliente, cancellationToken);
 
-            return Results.Ok(new ClienteResponse(cliente.Id.ToString(), cliente.Nome, cliente.Email.Value, cliente.Celular, cliente.Enderecos.Select(e => new EnderecoResponse(e.Id.ToString(), e.Rua, e.Numero, e.Complemento, e.Bairro, e.Municipio, e.Estado?.ToString(), e.CEP))));
+            return Results.Ok(ClienteResponse.From(cliente));
         })
         .WithTags(TAG_CLIENTES)
         .Produces<ClienteResponse>(StatusCodes.Status200OK)
@@ -237,7 +237,7 @@ public static class ClientesEndpoints
             cliente.RemoveEndereco(endereco);
             await repository.UpdateAsync(cliente, cancellationToken);
 
-            return Results.Ok(new ClienteResponse(cliente.Id.ToString(), cliente.Nome, cliente.Email.Value, cliente.Celular, cliente.Enderecos.Select(e => new EnderecoResponse(e.Id.ToString(), e.Rua, e.Numero, e.Complemento, e.Bairro, e.Municipio, e.Estado?.ToString(), e.CEP))));
+            return Results.Ok(ClienteResponse.From(cliente));
         })
         .WithTags(TAG_CLIENTES)
         .Produces(StatusCodes.Status204NoContent)

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ContainRs.Domain.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ContainRs.Api.Requests;
 
@@ -16,6 +17,19 @@ public class EnderecoRequest
     public string? Municipio { get; set; }
     [Required]
     public string? Estado { get; set; }
+    public string? Nome { get; set; }
+
+    public Endereco ToModel() => new()
+    {
+        CEP = CEP,
+        Rua = Rua!,
+        Numero = Numero,
+        Complemento = Complemento,
+        Bairro = Bairro,
+        Municipio = Municipio!,
+        Estado = UfStringConverter.From(Estado),
+        Nome = Nome
+    };
 }
 
 public class RegistroRequest

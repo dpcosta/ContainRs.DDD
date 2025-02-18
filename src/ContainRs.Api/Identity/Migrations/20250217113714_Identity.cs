@@ -217,6 +217,9 @@ namespace ContainRs.Api.Identity.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+
+            migrationBuilder.SeedIdentityData();
         }
 
         /// <inheritdoc />

@@ -1,6 +1,7 @@
 using ContainRs.Api.Contracts;
 using ContainRs.Api.Data;
 using ContainRs.Api.Data.Repositories;
+using ContainRs.Api.Domain;
 using ContainRs.Api.Endpoints;
 using ContainRs.Api.Identity;
 using ContainRs.Domain.Models;
@@ -25,6 +26,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddScoped<IRepository<Cliente>, ClienteRepository>();
+builder.Services.AddScoped<IRepository<Solicitacao>, SolicitacaoRepository>();
 
 builder.Services
     .AddIdentityApiEndpoints<AppUser>(options => options.SignIn.RequireConfirmedEmail = true)
@@ -32,6 +34,11 @@ builder.Services
     .AddEntityFrameworkStores<IdentityDbContext>();
 
 builder.Services.AddAuthorization();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.ClaimsIdentity.UserIdClaimType = "ClienteId";
+});
 
 var app = builder.Build();
 
@@ -48,6 +55,7 @@ app.UseAuthorization();
 app
     .MapIdentityEndpoints()
     .MapClientesEndpoints()
-    .MapAprovacaoClientesEndpoints();
+    .MapAprovacaoClientesEndpoints()
+    .MapSolicitacoesEndpoints();
 
 app.Run();

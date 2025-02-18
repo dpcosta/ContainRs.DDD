@@ -6,15 +6,15 @@ namespace ContainRs.Api.Contracts;
 public interface IRepository<T>
 {
     Task<T> AddAsync(
-        T cliente
+        T obj
         , CancellationToken cancellationToken = default);
 
     Task<T> UpdateAsync(
-        T cliente
+        T obj
         , CancellationToken cancellationToken = default);
 
     Task RemoveAsync(
-        T cliente
+        T obj
         , CancellationToken cancellationToken = default);
 
     Task<T?> GetFirstAsync<TProperty>(

@@ -11,15 +11,14 @@ namespace ContainRs.Api.Endpoints;
 
 public static class ClientesEndpoints
 {
-    public const string TAG_CLIENTES = "Gestão de Clientes";
-    public const string ENDPOINT_GROUP_ROUTE = "clientes";
     public const string ENDPOINT_NAME_GET_CLIENTE = "GetCliente";
+
     public static IEndpointRouteBuilder MapClientesEndpoints(this IEndpointRouteBuilder builder)
     {
         var group = builder
-            .MapGroup(ENDPOINT_GROUP_ROUTE)
+            .MapGroup(EndpointConstants.ROUTE_CLIENTES)
             .RequireAuthorization(policy => policy.RequireRole("Cliente"))
-            .WithTags(TAG_CLIENTES)
+            .WithTags(EndpointConstants.TAG_CLIENTES)
             .WithOpenApi();
 
         group
@@ -50,7 +49,6 @@ public static class ClientesEndpoints
             return Results.Ok(ClienteResponse.From(cliente));
         })
         .WithName(ENDPOINT_NAME_GET_CLIENTE)
-        .WithTags(TAG_CLIENTES)
         .Produces<IEnumerable<ClienteResponse>>(StatusCodes.Status200OK);
         return builder;
     }
@@ -78,7 +76,6 @@ public static class ClientesEndpoints
             return Results.CreatedAtRoute(ENDPOINT_NAME_GET_CLIENTE, new { id = cliente.Id },  ClienteResponse.From(cliente));
         })
         .AllowAnonymous()
-        .WithTags(TAG_CLIENTES)
         .Produces<ClienteResponse>(StatusCodes.Status201Created);
         return builder;
     }
@@ -100,7 +97,6 @@ public static class ClientesEndpoints
 
             return Results.Ok(ClienteResponse.From(clienteExistente));
         })
-        .WithTags(TAG_CLIENTES)
         .Produces<ClienteResponse>(StatusCodes.Status200OK)
         .Produces(StatusCodes.Status404NotFound);
         return builder;
@@ -127,7 +123,6 @@ public static class ClientesEndpoints
             scope.Complete();
             return Results.NoContent();
         })
-        .WithTags(TAG_CLIENTES)
         .Produces(StatusCodes.Status204NoContent)
         .Produces(StatusCodes.Status404NotFound);
         return builder;
@@ -158,7 +153,6 @@ public static class ClientesEndpoints
                 return Results.Ok(RegistrationStatusResponse.Aprovado(cliente));
             })
             .AllowAnonymous()
-            .WithTags(TAG_CLIENTES)
             .Produces<RegistrationStatusResponse>(StatusCodes.Status200OK)
             .Produces(StatusCodes.Status404NotFound);
         return builder;
@@ -180,7 +174,6 @@ public static class ClientesEndpoints
 
             return Results.CreatedAtRoute(ENDPOINT_NAME_GET_CLIENTE, new { id = cliente.Id }, ClienteResponse.From(cliente));
         })
-        .WithTags(TAG_CLIENTES)
         .Produces<ClienteResponse>(StatusCodes.Status201Created)
         .Produces(StatusCodes.Status404NotFound);
         return builder;
@@ -214,7 +207,6 @@ public static class ClientesEndpoints
 
             return Results.Ok(ClienteResponse.From(cliente));
         })
-        .WithTags(TAG_CLIENTES)
         .Produces<ClienteResponse>(StatusCodes.Status200OK)
         .Produces(StatusCodes.Status404NotFound);
         return builder;
@@ -239,7 +231,6 @@ public static class ClientesEndpoints
 
             return Results.Ok(ClienteResponse.From(cliente));
         })
-        .WithTags(TAG_CLIENTES)
         .Produces(StatusCodes.Status204NoContent)
         .Produces(StatusCodes.Status404NotFound);
         return builder;

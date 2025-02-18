@@ -12,9 +12,9 @@ public static class AprovacaoClientesEndpoints
     public static IEndpointRouteBuilder MapAprovacaoClientesEndpoints(this IEndpointRouteBuilder builder)
     {
         var group = builder
-            .MapGroup(ClientesEndpoints.ENDPOINT_GROUP_ROUTE)
+            .MapGroup(EndpointConstants.ROUTE_CLIENTES)
             .RequireAuthorization(policy => policy.RequireRole("Suporte"))
-            .WithTags(ClientesEndpoints.TAG_CLIENTES)
+            .WithTags(EndpointConstants.TAG_CLIENTES)
             .WithOpenApi();
 
         group

@@ -29,6 +29,7 @@ builder.Services.AddScoped<IRepository<Cliente>, ClienteRepository>();
 builder.Services.AddScoped<IRepository<Solicitacao>, SolicitacaoRepository>();
 builder.Services.AddScoped<IRepository<Proposta>, PropostaRepository>();
 builder.Services.AddScoped<IRepository<Locacao>, LocacaoRepository>();
+builder.Services.AddScoped<IRepository<Conteiner>, ConteinerRepository>();
 
 builder.Services
     .AddIdentityApiEndpoints<AppUser>(options => options.SignIn.RequireConfirmedEmail = true)
@@ -60,6 +61,7 @@ app
     .MapAprovacaoClientesEndpoints()
     .MapSolicitacoesEndpoints()
     .MapPropostasEndpoints()
-    .MapLocacoesEndpoints();
+    .MapLocacoesEndpoints()
+    .MapConteineresEndpoints();
 
 app.Run();

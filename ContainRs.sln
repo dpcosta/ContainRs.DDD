@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainRs.Clientes", "src\c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainRs.Engenharia", "src\contextos\ContainRs.Engenharia\ContainRs.Engenharia.csproj", "{44747C56-63CE-4E67-9B24-9A6668FE6830}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComtainRs.Contracts", "src\ComtainRs.Contracts\ComtainRs.Contracts.csproj", "{447E8678-CDEB-457C-A918-DAA4A782ABBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{44747C56-63CE-4E67-9B24-9A6668FE6830}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44747C56-63CE-4E67-9B24-9A6668FE6830}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44747C56-63CE-4E67-9B24-9A6668FE6830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{447E8678-CDEB-457C-A918-DAA4A782ABBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{447E8678-CDEB-457C-A918-DAA4A782ABBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{447E8678-CDEB-457C-A918-DAA4A782ABBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{447E8678-CDEB-457C-A918-DAA4A782ABBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{E3B4DE45-42E0-48C2-8F3C-ABCD07CDDA30} = {C0E1F53F-7C05-4C10-876D-F3EFD5CA9DA8}
 		{30447279-418A-4D5B-8291-7C2B9A291E7D} = {C0E1F53F-7C05-4C10-876D-F3EFD5CA9DA8}
 		{44747C56-63CE-4E67-9B24-9A6668FE6830} = {C0E1F53F-7C05-4C10-876D-F3EFD5CA9DA8}
+		{447E8678-CDEB-457C-A918-DAA4A782ABBF} = {BB5080F2-2FC9-4936-ADFC-85CBC6E32928}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC479B39-0170-466F-A7C1-258D9F3761B2}

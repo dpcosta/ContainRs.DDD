@@ -1,7 +1,6 @@
-﻿using ContainRs.Domain.Models;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
-namespace ContainRs.Api.Contracts;
+namespace ComtainRs.Contracts;
 
 public interface IRepository<T>
 {

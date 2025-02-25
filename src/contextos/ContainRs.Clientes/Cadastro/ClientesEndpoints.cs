@@ -1,4 +1,4 @@
-﻿using ContainRs.Api.Contracts;
+﻿using ComtainRs.Contracts;
 using ContainRs.Api.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

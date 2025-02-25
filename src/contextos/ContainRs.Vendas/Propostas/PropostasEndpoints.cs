@@ -1,4 +1,4 @@
-﻿using ContainRs.Api.Contracts;
+﻿using ComtainRs.Contracts;
 using ContainRs.Vendas.Locacoes;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;

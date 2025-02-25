@@ -41,7 +41,7 @@ public static class ContaineresEndpoints
         .WithName(ENDPOINT_NAME_GET_CONTEINER)
         .WithSummary("Cliente consulta informações sobre o contêiner")
         .Produces(StatusCodes.Status404NotFound)
-        .Produces<PropostaResponse>(StatusCodes.Status200OK);
+        .Produces<ConteinerResponse>(StatusCodes.Status200OK);
 
         return builder;
     }

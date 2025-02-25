@@ -1,5 +1,16 @@
 ﻿namespace ContainRs.Api.Domain;
 
+public record StatusConteiner(string Status)
+{
+    public static StatusConteiner ON => new("ON");
+    public static StatusConteiner OFF => new("OFF");
+    public static StatusConteiner STANDBY => new("STANDBY");
+    public static StatusConteiner LOW_POWER => new("LOW_POWER");
+    public static StatusConteiner FAULT => new("FAULT");
+    public static StatusConteiner CHARGING => new("CHARGING");
+    public override string ToString() => Status;
+}
+
 public class Conteiner
 {
     public Guid Id { get; set; }
@@ -11,6 +22,6 @@ public class Conteiner
         FAULT - Há uma falha no sistema de energia do contêiner.
         CHARGING - O contêiner está conectado a uma fonte de energia e sendo carregado. 
      */
-    public string Status { get; set; } = "OFF";
+    public StatusConteiner Status { get; set; } = StatusConteiner.OFF;
     public string? Observacoes { get; set; }
 }

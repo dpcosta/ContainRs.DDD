@@ -1,13 +1,14 @@
 ﻿namespace ContainRs.Api.Domain;
 
-public record StatusProposta(string Status)
+public record SituacaoProposta(string Status)
 {
-    public static StatusProposta Enviada => new("Enviada");
-    public static StatusProposta Expirada => new("Expirada");
-    public static StatusProposta Aceita => new("Aceita");
-    public static StatusProposta Recusada => new("Recusada");
+    public static SituacaoProposta Enviada => new("Enviada");
+    public static SituacaoProposta Expirada => new("Expirada");
+    public static SituacaoProposta Aceita => new("Aceita");
+    public static SituacaoProposta Recusada => new("Recusada");
+    public static SituacaoProposta Cancelada => new("Cancelada");
     public override string ToString() => Status;
-    public static StatusProposta? Parse(string status)
+    public static SituacaoProposta? Parse(string status)
     {
         return status switch
         {
@@ -15,6 +16,7 @@ public record StatusProposta(string Status)
             "Expirada" => Expirada,
             "Aceita" => Aceita,
             "Recusada" => Recusada,
+            "Cancelada" => Cancelada,
             _ => null
         };
     }
@@ -24,7 +26,7 @@ public class Proposta
 {
     public Proposta() { }
     public Guid Id { get; set; }
-    public StatusProposta Status { get; set; } = StatusProposta.Enviada;
+    public SituacaoProposta Situacao { get; set; } = SituacaoProposta.Enviada;
     public decimal ValorTotal { get; set; }
     public DateTime DataCriacao { get; set; }
     public DateTime DataExpiracao { get; set; }

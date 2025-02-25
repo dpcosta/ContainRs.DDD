@@ -131,7 +131,7 @@ public static class PropostasEndpoints
                     p => p.Id);
             if (proposta is null) return Results.NotFound();
 
-            proposta.Status = StatusProposta.Aceita;
+            proposta.Situacao = SituacaoProposta.Aceita;
 
             // criar locação a partir da proposta aceita
             var locacao = new Locacao()
@@ -173,7 +173,7 @@ public static class PropostasEndpoints
                     p => p.Id);
             if (proposta is null) return Results.NotFound();
 
-            proposta.Status = StatusProposta.Recusada;
+            proposta.Situacao = SituacaoProposta.Recusada;
             await repository.UpdateAsync(proposta);
 
             return Results.Ok(PropostaResponse.From(proposta));

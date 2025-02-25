@@ -1,6 +1,6 @@
 ﻿using ContainRs.Domain.Models;
 
-namespace ContainRs.Api.Responses;
+namespace ContainRs.Api.Clientes;
 
 public record ClienteResponse(string Id, string Nome, string Email, string? Celular, IEnumerable<EnderecoResponse>? Enderecos = null)
 {
@@ -16,7 +16,7 @@ public record ClienteResponse(string Id, string Nome, string Email, string? Celu
     }
 }
 
-    public record EnderecoResponse(string Id, string? Nome, string Logradouro, string? Numero, string? Complemento, string? Bairro, string Cidade, string? Estado, string CEP)
+public record EnderecoResponse(string Id, string? Nome, string Logradouro, string? Numero, string? Complemento, string? Bairro, string Cidade, string? Estado, string CEP)
 {
     public static EnderecoResponse From(Endereco endereco)
     {
@@ -44,7 +44,7 @@ public record RegistrationStatusResponse(string ClienteId, string Email, string 
         );
     }
 
-    public static RegistrationStatusResponse Aprovado(Cliente cliente) =>From(cliente, "Aprovado");
+    public static RegistrationStatusResponse Aprovado(Cliente cliente) => From(cliente, "Aprovado");
     public static RegistrationStatusResponse Reprovado(Cliente cliente) => From(cliente, "Reprovado");
     public static RegistrationStatusResponse Pendente(Cliente cliente) => From(cliente, "Pendente");
 }

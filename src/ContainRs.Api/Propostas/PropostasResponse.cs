@@ -1,6 +1,6 @@
 ﻿using ContainRs.Api.Domain;
 
-namespace ContainRs.Api.Responses;
+namespace ContainRs.Api.Propostas;
 
 public record SolicitacaoResponse(string Id, string Status, string Finalidade)
 {
@@ -18,16 +18,5 @@ public record PropostaResponse(string Id, string Status, decimal Valor, DateTime
         Status: proposta.Status.ToString(),
         Valor: proposta.ValorTotal,
         DataExpiracao: proposta.DataExpiracao
-    );
-}
-
-public record LocacaoResponse(string Id, string Status, DateTime DataInicio, DateTime DataTermino, DateTime DataPrevistaEntrega)
-{
-    public static LocacaoResponse From(Locacao locacao) => new(
-        Id: locacao.Id.ToString(),
-        Status: locacao.Status.ToString(),
-        DataInicio: locacao.DataInicio,
-        DataTermino: locacao.DataTermino,
-        DataPrevistaEntrega: locacao.DataPrevistaEntrega
     );
 }

@@ -1,4 +1,4 @@
-﻿using ContainRs.Api.Contracts;
+﻿using ComtainRs.Contracts;
 using ContainRs.Clientes.Cadastro;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;

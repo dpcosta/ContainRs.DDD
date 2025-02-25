@@ -1,4 +1,4 @@
-﻿using ContainRs.Domain.Models;
+﻿using ContainRs.Clientes.Cadastro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

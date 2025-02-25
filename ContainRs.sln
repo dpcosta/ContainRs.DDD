@@ -17,9 +17,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainRs.Testes", "tests\ContainRs.Testes\ContainRs.Testes.csproj", "{E52DC0D6-2088-47E7-888D-F6189F6FE2D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "contextos", "contextos", "{C0E1F53F-7C05-4C10-876D-F3EFD5CA9DA8}"
-	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainRs.Vendas", "src\contextos\ContainRs.Vendas\ContainRs.Vendas.csproj", "{E3B4DE45-42E0-48C2-8F3C-ABCD07CDDA30}"
 EndProject

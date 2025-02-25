@@ -1,4 +1,4 @@
-﻿using ContainRs.Api.Domain;
+﻿using ContainRs.Engenharia.Conteineres;
 
 namespace ContainRs.Api.Data.Repositories;
 

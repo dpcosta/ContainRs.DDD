@@ -1,5 +1,4 @@
 ﻿using ComtainRs.Contracts;
-using ContainRs.Api.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContainRs.Vendas.Locacoes;
@@ -24,13 +23,14 @@ public static class LocacoesEndpoints
     {
         builder.MapGet("", async (
             HttpContext context,
-            [FromServices] IRepository<Locacao> repository) =>
+            [FromServices] IRepository<Locacao> repository,
+            [FromServices] IGetUserClaim getUserClaim) =>
         {
-            var clienteId = context.GetClienteId();
+            var clienteId = await getUserClaim.GetUserClaimAsync("ClienteId");
             if (clienteId is null) return Results.Unauthorized();
 
             var locacoes = await repository
-                .GetWhereAsync(l => l.ClienteId == clienteId.Value);
+                .GetWhereAsync(l => l.ClienteId == Guid.Parse(clienteId));
             return Results.Ok(locacoes.Select(LocacaoResponse.From));
         })
         .WithSummary("Lista o histórico de locações do cliente");

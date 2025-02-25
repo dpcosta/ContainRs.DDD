@@ -1,4 +1,4 @@
-﻿using ContainRs.Api.Domain;
+﻿using ContainRs.Vendas.Propostas;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

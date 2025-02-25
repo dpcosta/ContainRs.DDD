@@ -1,5 +1,5 @@
-﻿using ContainRs.Api.Contracts;
-using ContainRs.Domain.Models;
+﻿using ComtainRs.Contracts;
+using ContainRs.Clientes.Cadastro;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 

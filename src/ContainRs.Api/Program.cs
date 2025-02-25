@@ -1,13 +1,12 @@
-using ContainRs.Api.Clientes;
-using ContainRs.Api.Conteineres;
-using ContainRs.Api.Contracts;
+using ComtainRs.Contracts;
 using ContainRs.Api.Data;
 using ContainRs.Api.Data.Repositories;
-using ContainRs.Api.Domain;
+using ContainRs.Api.Extensions;
 using ContainRs.Api.Identity;
-using ContainRs.Api.Locacoes;
-using ContainRs.Api.Propostas;
-using ContainRs.Domain.Models;
+using ContainRs.Clientes.Cadastro;
+using ContainRs.Engenharia.Conteineres;
+using ContainRs.Vendas.Locacoes;
+using ContainRs.Vendas.Propostas;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,6 +27,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         .UseSqlServer(builder.Configuration.GetConnectionString("ContainRsDB"));
 });
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IGetUserClaim, GetUserClaimAsyncImpl>();
 builder.Services.AddScoped<IRepository<Cliente>, ClienteRepository>();
 builder.Services.AddScoped<IRepository<PedidoLocacao>, SolicitacaoRepository>();
 builder.Services.AddScoped<IRepository<Proposta>, PropostaRepository>();

@@ -1,4 +1,4 @@
-﻿using ContainRs.Api.Domain;
+﻿using ContainRs.Vendas.Locacoes;
 
 namespace ContainRs.Api.Data.Repositories;
 

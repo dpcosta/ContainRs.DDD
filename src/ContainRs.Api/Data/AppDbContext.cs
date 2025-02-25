@@ -1,5 +1,7 @@
-﻿using ContainRs.Api.Domain;
-using ContainRs.Domain.Models;
+﻿using ContainRs.Clientes.Cadastro;
+using ContainRs.Engenharia.Conteineres;
+using ContainRs.Vendas.Locacoes;
+using ContainRs.Vendas.Propostas;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContainRs.Api.Data;

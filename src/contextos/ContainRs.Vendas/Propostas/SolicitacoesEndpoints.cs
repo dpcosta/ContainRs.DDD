@@ -1,5 +1,4 @@
 ﻿using ComtainRs.Contracts;
-using ContainRs.Api.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContainRs.Vendas.Propostas;
@@ -47,12 +46,13 @@ public static class SolicitacoesEndpoints
     {
         builder.MapGet("", async (
             HttpContext context,
-            [FromServices] IRepository<PedidoLocacao> repository) =>
+            [FromServices] IRepository<PedidoLocacao> repository,
+            [FromServices] IGetUserClaim getUserClaim) =>
         {
-            var clienteId = context.GetClienteId();
+            var clienteId = await getUserClaim.GetUserClaimAsync("clienteId");
             if (clienteId is null) return Results.Unauthorized();
 
-            var solicitacoes = await repository.GetWhereAsync(s => s.ClienteId == clienteId.Value && s.Status.Status.Equals("Ativa"));
+            var solicitacoes = await repository.GetWhereAsync(s => s.ClienteId == Guid.Parse(clienteId) && s.Status.Status.Equals("Ativa"));
             return Results.Ok(solicitacoes.Select(SolicitacaoResponse.From));
         })
         .WithSummary("Lista as solicitações ativas do cliente")
@@ -66,14 +66,15 @@ public static class SolicitacoesEndpoints
         builder.MapPost("", async (
             [FromBody] SolicitacaoRequest request
             , HttpContext context
-            , [FromServices] IRepository<PedidoLocacao> repository) =>
+            , [FromServices] IRepository<PedidoLocacao> repository
+            , [FromServices] IGetUserClaim getUserClaim) =>
         {
-            var clienteId = context.GetClienteId();
+            var clienteId = await getUserClaim.GetUserClaimAsync("clienteId");
             if (clienteId is null) return Results.Unauthorized();
 
             var solicitacao = new PedidoLocacao
             {
-                ClienteId = clienteId.Value,
+                ClienteId = Guid.Parse(clienteId),
                 Descricao = request.Descricao,
                 QuantidadeEstimada = request.QuantidadeEstimada,
                 Finalidade = request.Finalidade,

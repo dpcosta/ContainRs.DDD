@@ -1,9 +1,9 @@
 ﻿using ContainRs.Api.Contracts;
-using ContainRs.Api.Domain;
+using ContainRs.Vendas.Locacoes;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
 
-namespace ContainRs.Api.Propostas;
+namespace ContainRs.Vendas.Propostas;
 
 public static class PropostasEndpoints
 {

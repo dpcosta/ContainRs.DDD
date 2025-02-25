@@ -1,5 +1,5 @@
 ﻿using ContainRs.Api.Contracts;
-using ContainRs.Domain.Models;
+using ContainRs.Clientes.Cadastro;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System.Security.Claims;

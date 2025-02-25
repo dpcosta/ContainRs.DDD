@@ -1,4 +1,4 @@
-﻿namespace ContainRs.Api.Domain;
+﻿namespace ContainRs.Engenharia.Conteineres;
 
 public record StatusConteiner(string Status)
 {

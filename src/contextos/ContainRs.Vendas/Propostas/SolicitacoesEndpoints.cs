@@ -1,9 +1,8 @@
 ﻿using ContainRs.Api.Contracts;
-using ContainRs.Api.Domain;
 using ContainRs.Api.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContainRs.Api.Propostas;
+namespace ContainRs.Vendas.Propostas;
 
 public static class SolicitacoesEndpoints
 {

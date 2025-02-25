@@ -1,11 +1,12 @@
 ﻿using ContainRs.Api.Contracts;
 using ContainRs.Api.Domain;
+using ContainRs.Api.Endpoints;
 using ContainRs.Api.Extensions;
 using ContainRs.Api.Requests;
 using ContainRs.Api.Responses;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContainRs.Api.Endpoints;
+namespace ContainRs.Api.Propostas;
 
 public static class SolicitacoesEndpoints
 {
@@ -90,7 +91,7 @@ public static class SolicitacoesEndpoints
             }
 
             await repository.AddAsync(solicitacao);
-            
+
             return Results.CreatedAtRoute(ENDPOINT_NAME_GET_SOLICITACAO, new { id = solicitacao.Id }, SolicitacaoResponse.From(solicitacao));
         })
         .WithSummary("Cliente solicita propostas de locação")

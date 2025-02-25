@@ -1,11 +1,12 @@
 ﻿using ContainRs.Api.Contracts;
 using ContainRs.Api.Domain;
+using ContainRs.Api.Endpoints;
 using ContainRs.Api.Requests;
 using ContainRs.Api.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
 
-namespace ContainRs.Api.Endpoints;
+namespace ContainRs.Api.Propostas;
 
 public static class PropostasEndpoints
 {
@@ -32,10 +33,10 @@ public static class PropostasEndpoints
     public static RouteGroupBuilder MapPostProposta(this RouteGroupBuilder builder)
     {
         builder
-            .MapPost("{id:guid}/proposals", async(
+            .MapPost("{id:guid}/proposals", async (
                 [FromRoute] Guid id,
                 [FromForm] PropostaRequest request,
-                [FromServices] IRepository <Solicitacao> repoSolicitacao,
+                [FromServices] IRepository<Solicitacao> repoSolicitacao,
                 [FromServices] IRepository<Proposta> repoProposta
                 ) =>
             {
@@ -58,8 +59,8 @@ public static class PropostasEndpoints
                 await repoProposta.AddAsync(proposta);
 
                 return Results.CreatedAtRoute(
-                    ENDPOINT_NAME_GET_PROPOSTA, 
-                    new { proposta.Id }, 
+                    ENDPOINT_NAME_GET_PROPOSTA,
+                    new { proposta.Id },
                     PropostaResponse.From(proposta));
             })
             // deveria ser Comercial, mas para não criarmos usuários com papéis diferentes, usaremos o papel (role) Suporte
@@ -108,7 +109,7 @@ public static class PropostasEndpoints
                     s => s.Id);
             if (solicitacao is null) return Results.NotFound();
 
-        return Results.Ok(solicitacao.Propostas.Select(p => PropostaResponse.From(p)));
+            return Results.Ok(solicitacao.Propostas.Select(p => PropostaResponse.From(p)));
         })
         .RequireAuthorization(policy => policy.RequireRole("Cliente"))
         .WithSummary("Cliente consulta as propostas para uma solicitação de locação")

@@ -11,7 +11,7 @@ public static class SolicitacoesEndpoints
     public static IEndpointRouteBuilder MapSolicitacoesEndpoints(this IEndpointRouteBuilder builder)
     {
         var group = builder
-            .MapGroup(EndpointConstants.ROUTE_SOLICITACOES)
+            .MapGroup(EndpointConstants.ROUTE_PEDIDOS)
             .RequireAuthorization(policy => policy.RequireRole("Cliente"))
             .WithTags(EndpointConstants.TAG_LOCACAO)
             .WithOpenApi();
@@ -29,7 +29,7 @@ public static class SolicitacoesEndpoints
     {
         builder.MapGet("{id}", async (
             [FromRoute] Guid id
-            , [FromServices] IRepository<Solicitacao> repository) =>
+            , [FromServices] IRepository<PedidoLocacao> repository) =>
         {
             var solicitacao = await repository
                 .GetFirstAsync(
@@ -48,7 +48,7 @@ public static class SolicitacoesEndpoints
     {
         builder.MapGet("", async (
             HttpContext context,
-            [FromServices] IRepository<Solicitacao> repository) =>
+            [FromServices] IRepository<PedidoLocacao> repository) =>
         {
             var clienteId = context.GetClienteId();
             if (clienteId is null) return Results.Unauthorized();
@@ -67,12 +67,12 @@ public static class SolicitacoesEndpoints
         builder.MapPost("", async (
             [FromBody] SolicitacaoRequest request
             , HttpContext context
-            , [FromServices] IRepository<Solicitacao> repository) =>
+            , [FromServices] IRepository<PedidoLocacao> repository) =>
         {
             var clienteId = context.GetClienteId();
             if (clienteId is null) return Results.Unauthorized();
 
-            var solicitacao = new Solicitacao
+            var solicitacao = new PedidoLocacao
             {
                 ClienteId = clienteId.Value,
                 Descricao = request.Descricao,
@@ -101,7 +101,7 @@ public static class SolicitacoesEndpoints
     {
         builder.MapDelete("{id}", async (
             [FromRoute] Guid id
-            , [FromServices] IRepository<Solicitacao> repository) =>
+            , [FromServices] IRepository<PedidoLocacao> repository) =>
         {
             var solicitacao = await repository
                 .GetFirstAsync(
@@ -109,7 +109,7 @@ public static class SolicitacoesEndpoints
                     s => s.Id);
             if (solicitacao is null) return Results.NotFound();
 
-            solicitacao.Status = StatusSolicitacao.Cancelada;
+            solicitacao.Status = StatusPedido.Cancelado;
             await repository.UpdateAsync(solicitacao);
 
             return Results.NoContent();

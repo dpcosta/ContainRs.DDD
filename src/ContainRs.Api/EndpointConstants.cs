@@ -9,7 +9,7 @@ public static class EndpointConstants
 
     // Rotas dos endpoints
     public const string ROUTE_CLIENTES = "clientes";
-    public const string ROUTE_SOLICITACOES = "rental-requests";
+    public const string ROUTE_PEDIDOS = "rental-requests";
     public const string ROUTE_PROPOSTAS = "proposals";
     public const string ROUTE_LOCACOES = "rentals";
     public const string ROUTE_CONTEINERES = "containers";

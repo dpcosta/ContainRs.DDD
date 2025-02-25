@@ -2,34 +2,37 @@
 
 namespace ContainRs.Api.Domain;
 
-public record StatusSolicitacao(string Status)
+public record StatusPedido(string Status)
 {
-    public static StatusSolicitacao Ativa => new("Ativa");
-    public static StatusSolicitacao Inativa => new("Inativa");
-    public static StatusSolicitacao Cancelada => new("Cancelada");
+    public static StatusPedido Ativo => new("Ativo");
+    public static StatusPedido Inativo => new("Inativo");
+    public static StatusPedido Cancelado => new("Cancelado");
 
     public override string ToString() => Status;
-    public static StatusSolicitacao? Parse(string status)
+    public static StatusPedido? Parse(string status)
     {
         return status switch
         {
-            "Ativa" => Ativa,
-            "Inativa" => Inativa,
-            "Cancelada" => Cancelada,
+            "Ativo" => Ativo,
+            "Inativo" => Inativo,
+            "Cancelado" => Cancelado,
             _ => null
         };
     }
 }
 
-public class Solicitacao
+/// <summary>
+/// Pedido formal realizado por um cliente interessado na locação de um contêiner. A solicitação pode incluir informações sobre finalidade, localização, quantidade e período desejado
+/// </summary>
+public class PedidoLocacao
 {
-    public Solicitacao() { }
+    public PedidoLocacao() { }
 
     public Guid Id { get; set; }
     public Guid ClienteId { get; set; }
     public string Descricao { get; set; }
     public int QuantidadeEstimada { get; set; }
-    public StatusSolicitacao Status { get; set; } = StatusSolicitacao.Ativa;
+    public StatusPedido Status { get; set; } = StatusPedido.Ativo;
     public string Finalidade { get; set; }
     public DateTime DataInicioOperacao { get; set; }
     public int DisponibilidadePrevia { get; set; }

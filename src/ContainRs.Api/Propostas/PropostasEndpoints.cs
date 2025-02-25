@@ -12,7 +12,7 @@ public static class PropostasEndpoints
     public static IEndpointRouteBuilder MapPropostasEndpoints(this IEndpointRouteBuilder builder)
     {
         var group = builder
-            .MapGroup(EndpointConstants.ROUTE_SOLICITACOES)
+            .MapGroup(EndpointConstants.ROUTE_PEDIDOS)
             .WithTags(EndpointConstants.TAG_LOCACAO)
             .WithOpenApi();
 
@@ -33,7 +33,7 @@ public static class PropostasEndpoints
             .MapPost("{id:guid}/proposals", async (
                 [FromRoute] Guid id,
                 [FromForm] PropostaRequest request,
-                [FromServices] IRepository<Solicitacao> repoSolicitacao,
+                [FromServices] IRepository<PedidoLocacao> repoSolicitacao,
                 [FromServices] IRepository<Proposta> repoProposta
                 ) =>
             {
@@ -97,7 +97,7 @@ public static class PropostasEndpoints
     {
         builder.MapGet("{id:guid}/proposals", async (
             [FromRoute] Guid id,
-            [FromServices] IRepository<Solicitacao> repository) =>
+            [FromServices] IRepository<PedidoLocacao> repository) =>
         {
 
             var solicitacao = await repository

@@ -1,6 +1,4 @@
-﻿using ContainRs.Api.Domain;
-
-namespace ContainRs.Api.Propostas;
+﻿namespace ContainRs.Vendas.Propostas;
 
 public record SolicitacaoResponse(string Id, string Status, string Finalidade)
 {

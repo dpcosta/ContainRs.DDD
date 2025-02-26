@@ -1,9 +1,9 @@
 ﻿using ContainRs.Api.Contracts;
-using ContainRs.Api.Domain;
 using ContainRs.Api.Extensions;
+using ContainRs.Vendas;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContainRs.Api.Locacoes;
+namespace ContainRs.Vendas.Locacoes;
 
 public static class LocacoesEndpoints
 {

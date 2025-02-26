@@ -1,6 +1,4 @@
-﻿using ContainRs.Api.Domain;
-
-namespace ContainRs.Api.Locacoes;
+﻿namespace ContainRs.Vendas.Locacoes;
 
 public record LocacaoResponse(string Id, string Status, DateTime DataInicio, DateTime DataTermino, DateTime DataPrevistaEntrega)
 {

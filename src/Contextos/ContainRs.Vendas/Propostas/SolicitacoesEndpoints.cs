@@ -1,4 +1,4 @@
-﻿using ContainRs.Api.Contracts;
+﻿using ContainRs.Contracts;
 using ContainRs.Api.Extensions;
 using ContainRs.Vendas;
 using Microsoft.AspNetCore.Mvc;

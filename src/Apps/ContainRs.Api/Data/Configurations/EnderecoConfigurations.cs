@@ -1,12 +1,12 @@
-﻿using ContainRs.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 
 namespace ContainRs.Api.Data.Configurations;
 
-public class EnderecoConfigurations : IEntityTypeConfiguration<Endereco>
+public class EnderecoConfigurations : IEntityTypeConfiguration<EnderecoCli>
 {
-    public void Configure(EntityTypeBuilder<Endereco> builder)
+    public void Configure(EntityTypeBuilder<EnderecoCli> builder)
     {
         builder.HasKey(e => e.Id);
         builder.Property(e => e.CEP).IsRequired();

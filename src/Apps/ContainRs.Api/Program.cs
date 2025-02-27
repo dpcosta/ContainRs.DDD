@@ -29,6 +29,8 @@ builder.Services.AddScoped<IRepository<Proposta>, PropostaRepository>();
 builder.Services.AddScoped<IRepository<Locacao>, LocacaoRepository>();
 builder.Services.AddScoped<IRepository<Conteiner>, ConteinerRepository>();
 
+builder.Services.AddScoped<IAcessoManager, AcessoManagerWithIdentity>();
+
 builder.Services
     .AddIdentityApiEndpoints<AppUser>(options => options.SignIn.RequireConfirmedEmail = true)
     .AddRoles<IdentityRole>()

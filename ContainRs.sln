@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainRs.Vendas", "src\Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainRs.Contracts", "src\ContainRs.Contracts\ContainRs.Contracts.csproj", "{3EBD0E86-BBA0-4B09-8F30-555839C0F3B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainRs.Clientes", "src\Contextos\ContainRs.Clientes\ContainRs.Clientes.csproj", "{5C403D2E-3715-4A19-A44F-E4F85934939C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{3EBD0E86-BBA0-4B09-8F30-555839C0F3B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EBD0E86-BBA0-4B09-8F30-555839C0F3B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EBD0E86-BBA0-4B09-8F30-555839C0F3B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C403D2E-3715-4A19-A44F-E4F85934939C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C403D2E-3715-4A19-A44F-E4F85934939C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C403D2E-3715-4A19-A44F-E4F85934939C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C403D2E-3715-4A19-A44F-E4F85934939C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{574138F7-080A-4FB5-8D0D-63F78370A591} = {B85A661D-112B-4123-A059-96D61E6415BE}
 		{4F1F5C4D-FCDD-4EE0-87AA-231E66E9172F} = {F64E2E11-FF41-40C0-9A21-94B6FFE6707E}
 		{3EBD0E86-BBA0-4B09-8F30-555839C0F3B4} = {BB5080F2-2FC9-4936-ADFC-85CBC6E32928}
+		{5C403D2E-3715-4A19-A44F-E4F85934939C} = {F64E2E11-FF41-40C0-9A21-94B6FFE6707E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC479B39-0170-466F-A7C1-258D9F3761B2}

@@ -13,5 +13,4 @@ public class Conteiner
      */
     public string Status { get; set; } = "OFF";
     public string? Observacoes { get; set; }
-    public Guid LocacaoId { get; set; }
 }

@@ -46,7 +46,7 @@ namespace ContainRs.Api.Data.Migrations
 
                     b.HasIndex("PropostaId");
 
-                    b.ToTable("Comentario");
+                    b.ToTable("Comentario", (string)null);
                 });
 
             modelBuilder.Entity("ContainRs.Api.Domain.Conteiner", b =>
@@ -64,7 +64,7 @@ namespace ContainRs.Api.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Conteineres");
+                    b.ToTable("Conteineres", (string)null);
                 });
 
             modelBuilder.Entity("ContainRs.Api.Domain.Locacao", b =>
@@ -93,7 +93,7 @@ namespace ContainRs.Api.Data.Migrations
                     b.HasIndex("PropostaId")
                         .IsUnique();
 
-                    b.ToTable("Locacoes");
+                    b.ToTable("Locacoes", (string)null);
                 });
 
             modelBuilder.Entity("ContainRs.Api.Domain.Proposta", b =>
@@ -125,7 +125,7 @@ namespace ContainRs.Api.Data.Migrations
 
                     b.HasIndex("SolicitacaoId");
 
-                    b.ToTable("Propostas");
+                    b.ToTable("Propostas", (string)null);
                 });
 
             modelBuilder.Entity("ContainRs.Api.Domain.Solicitacao", b =>
@@ -164,7 +164,7 @@ namespace ContainRs.Api.Data.Migrations
 
                     b.HasIndex("EnderecoId");
 
-                    b.ToTable("Solicitacoes");
+                    b.ToTable("Solicitacoes", (string)null);
                 });
 
             modelBuilder.Entity("ContainRs.Domain.Models.Cliente", b =>
@@ -186,7 +186,7 @@ namespace ContainRs.Api.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Clientes", (string)null);
                 });
 
             modelBuilder.Entity("ContainRs.Domain.Models.Endereco", b =>
@@ -229,7 +229,7 @@ namespace ContainRs.Api.Data.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.ToTable("Endereco");
+                    b.ToTable("Endereco", (string)null);
                 });
 
             modelBuilder.Entity("ContainRs.Api.Domain.Comentario", b =>
@@ -263,7 +263,7 @@ namespace ContainRs.Api.Data.Migrations
 
                             b1.HasKey("LocacaoId");
 
-                            b1.ToTable("Locacoes");
+                            b1.ToTable("Locacoes", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("LocacaoId");
@@ -295,7 +295,7 @@ namespace ContainRs.Api.Data.Migrations
 
                             b1.HasKey("PropostaId");
 
-                            b1.ToTable("Propostas");
+                            b1.ToTable("Propostas", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("PropostaId");
@@ -327,7 +327,7 @@ namespace ContainRs.Api.Data.Migrations
 
                             b1.HasKey("SolicitacaoId");
 
-                            b1.ToTable("Solicitacoes");
+                            b1.ToTable("Solicitacoes", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("SolicitacaoId");
@@ -353,7 +353,7 @@ namespace ContainRs.Api.Data.Migrations
 
                             b1.HasKey("ClienteId");
 
-                            b1.ToTable("Clientes");
+                            b1.ToTable("Clientes", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("ClienteId");

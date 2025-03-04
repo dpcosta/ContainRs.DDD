@@ -1,4 +1,4 @@
-﻿using ContainRs.Api.Domain;
+﻿using ContainRs.Engenharia.Conteineres;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContainRs.Api.Data;

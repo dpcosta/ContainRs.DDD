@@ -1,8 +1,7 @@
-using ContainRs.Api.Conteineres;
 using ContainRs.Api.Data;
 using ContainRs.Api.Data.Repositories;
-using ContainRs.Api.Domain;
 using ContainRs.Api.Identity;
+using ContainRs.Engenharia.Conteineres;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

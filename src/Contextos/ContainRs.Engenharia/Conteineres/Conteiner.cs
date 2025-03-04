@@ -23,5 +23,4 @@ public class Conteiner
     public Guid Id { get; set; }
     public StatusConteiner Status { get; set; } = StatusConteiner.OFF;
     public string? Observacoes { get; set; }
-    public Guid LocacaoId { get; set; }
 }
